@@ -1,0 +1,15 @@
+name: 'LG-TM-OH'
+description: 'Get LGTM YU-GI-OH card'
+inputs:
+  notion_token:
+    description: 'Notion token'
+    required: true
+  master_database_id:
+    description: 'Notion database id'
+    required: true
+  acquisition_database_id:
+    description: 'Notion database id'
+    required: true
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
