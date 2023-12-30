@@ -2,7 +2,7 @@
 
 required
 
-- node >= v18.18.0
+- node >= v20.8.0
 
 ## Project setup
 
