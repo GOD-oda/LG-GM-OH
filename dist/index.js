@@ -43,9 +43,9 @@ const client_1 = __nccwpck_require__(3006);
 __nccwpck_require__(357);
 const core = __importStar(__nccwpck_require__(7527));
 const env = {
-    NOTION_TOKEN: process.env.NOTION_TOKEN,
-    MASTER_DATABASE_ID: process.env.MASTER_DATABASE_ID,
-    ACQUISITION_DATABASE_ID: process.env.ACQUISITION_DATABASE_ID
+    NOTION_TOKEN: core.getInput('notion_token', { required: true }),
+    MASTER_DATABASE_ID: core.getInput('master_database_id', { required: true }),
+    ACQUISITION_DATABASE_ID: core.getInput('acquisition_database_id', { required: true })
 };
 const notion = new client_1.Client({
     auth: env.NOTION_TOKEN,
@@ -91,13 +91,6 @@ function getRandomNumber(min, max) {
 }
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const notion_token = core.getInput('notion_token', { required: true });
-        const master_database_id = core.getInput('master_database_id', { required: true });
-        const acquisition_database_id = core.getInput('acquisition_database_id', { required: true });
-        core.debug(`notion_token: ${notion_token}`);
-        core.debug(`master_database_id: ${master_database_id}`);
-        core.debug(`acquisition_database_id: ${acquisition_database_id}`);
-        return;
         const cards = yield allCards();
         const cardTotalNumber = cards.length;
         const index = getRandomNumber(0, cardTotalNumber - 1);
