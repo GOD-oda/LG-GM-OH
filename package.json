@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc",
+    "build:production": "tsc && ncc build lib/app.js --license licenses.txt",
     "exec": "ts-node src/app.ts"
   },
   "dependencies": {
